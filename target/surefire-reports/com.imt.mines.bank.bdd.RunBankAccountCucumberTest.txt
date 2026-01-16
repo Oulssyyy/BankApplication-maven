@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.imt.mines.bank.bdd.RunBankAccountCucumberTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.029 s -- in com.imt.mines.bank.bdd.RunBankAccountCucumberTest

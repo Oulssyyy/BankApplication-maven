@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="bankAccountApp.BankAccountTest" time="0.134" tests="11" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.imt.mines.bank.bdd.RunBankAccountCucumberTest" time="1.029" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -56,15 +56,12 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testWithdrawMoney_JustBelowLimit" classname="bankAccountApp.BankAccountTest" time="0.004"/>
-  <testcase name="testWithdrawMoney_AtExactLimit" classname="bankAccountApp.BankAccountTest" time="0.0"/>
-  <testcase name="testWithdrawMoney_ExceedsWithdrawLimit" classname="bankAccountApp.BankAccountTest" time="0.0"/>
-  <testcase name="testDepositMoney_NegativeAmount" classname="bankAccountApp.BankAccountTest" time="0.0"/>
-  <testcase name="testWithdrawMoney_ExceedsBalance" classname="bankAccountApp.BankAccountTest" time="0.0"/>
-  <testcase name="testWithdrawMoney_ExceedsDailyLimit" classname="bankAccountApp.BankAccountTest" time="0.0"/>
-  <testcase name="testDepositMoney_Zero" classname="bankAccountApp.BankAccountTest" time="0.0"/>
-  <testcase name="testDepositMoney_HappyPath" classname="bankAccountApp.BankAccountTest" time="0.0"/>
-  <testcase name="testWithdrawMoney_HappyPath" classname="bankAccountApp.BankAccountTest" time="0.0"/>
-  <testcase name="testWithdrawMoney_NegativeAmount" classname="bankAccountApp.BankAccountTest" time="0.0"/>
-  <testcase name="testDepositMoney_MultipleDeposits" classname="bankAccountApp.BankAccountTest" time="0.0"/>
+  <testcase name="A new account has zero balance" classname="Basic bank account behavior" time="0.194">
+    <system-out><![CDATA[
+Scenario: A new account has zero balance &amp#27;[90m# src/test/resources/features/bank_account_basic.feature:2&amp#27;[0m
+  &amp#27;[32mGiven &amp#27;[0m&amp#27;[32mI have a new bank account&amp#27;[0m        &amp#27;[90m# com.imt.mines.bank.bdd.BankAccountBasicSteps.i_have_a_new_bank_account()&amp#27;[0m
+  &amp#27;[32mWhen &amp#27;[0m&amp#27;[32mI check its balance&amp#27;[0m               &amp#27;[90m# com.imt.mines.bank.bdd.BankAccountBasicSteps.i_check_its_balance()&amp#27;[0m
+  &amp#27;[32mThen &amp#27;[0m&amp#27;[32mthe balance should be &amp#27;[0m&amp#27;[32m&amp#27;[1m0&amp#27;[0m           &amp#27;[90m# com.imt.mines.bank.bdd.BankAccountBasicSteps.the_balance_should_be(java.lang.Integer)&amp#27;[0m
+]]></system-out>
+  </testcase>
 </testsuite>

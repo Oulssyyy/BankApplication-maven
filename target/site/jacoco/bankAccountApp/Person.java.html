@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Person.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Bank Application</a> &gt; <a href="index.source.html" class="el_package">bankAccountApp</a> &gt; <span class="el_source">Person.java</span></div><h1>Person.java</h1><pre class="source lang-java linenums">package bankAccountApp;
+
+import java.util.Scanner;
+
+//TODO Add a validation to email address to insure that it is a string with a &quot;.&quot; imbedded and characters to the right an left
+//TODO Replace comments with java doc. Type in /** and hit enter above method
+
+/**
+ * Shows how to create a simple Person class
+ * 
+ * @author jay
+ */
+public class Person {
+	// All attributes are declared as private in order to
+	// prevent the user from modifying them directly.
+	private String name;
+	private char gender;
+	private int age;
+	private float height;
+	private float weight;
+	private String hairColor;
+	private String eyeColor;
+	private String email;
+
+
+	public static final String DELIM = &quot;\n&quot;;
+	
+	/**
+	 * Create Person
+	 * 
+	 * @param newName
+	 * @param newGender
+	 * @param newAge
+	 * @param newHeight
+	 */
+<span class="fc" id="L36">	public Person(String newName, char newGender, int newAge, float newHeight) {</span>
+<span class="fc" id="L37">		name = newName;</span>
+<span class="fc" id="L38">		gender = newGender;</span>
+<span class="fc" id="L39">		age = newAge;</span>
+<span class="fc" id="L40">		height = newHeight;</span>
+<span class="fc" id="L41">		weight = 80;</span>
+<span class="fc" id="L42">		hairColor = &quot;Black&quot;;</span>
+<span class="fc" id="L43">		eyeColor = &quot;Blue&quot;;</span>
+<span class="fc" id="L44">	}</span>
+
+	/*
+	 * Create Person
+	 */
+<span class="nc" id="L49">	public Person() {</span>
+<span class="nc" id="L50">		name = &quot;&quot;;</span>
+<span class="nc" id="L51">		gender = 'M';</span>
+<span class="nc" id="L52">		age = 0;</span>
+<span class="nc" id="L53">		height = 0;</span>
+<span class="nc" id="L54">		weight = 0;</span>
+<span class="nc" id="L55">		hairColor = &quot;&quot;;</span>
+<span class="nc" id="L56">		eyeColor = &quot;&quot;;</span>
+<span class="nc" id="L57">	}</span>
+
+	/**
+	 * Create Person
+	 * 
+	 * @param newName
+	 * @param newGender
+	 * @param newAge
+	 * @param newWeight
+	 * @param newHeight
+	 * @param newHairColor
+	 * @param newEyeColor
+	 * @param newEmail
+	 * @throws Exception 
+	 */
+<span class="nc" id="L72">	public Person(String newName, char newGender, int newAge, float newWeight, float newHeight, String newHairColor,</span>
+			String newEyeColor, String newEmail) throws Exception {
+<span class="nc" id="L74">		name = newName;</span>
+<span class="nc" id="L75">		gender = newGender;</span>
+<span class="nc" id="L76">		age = newAge;</span>
+<span class="nc" id="L77">		weight = newWeight;</span>
+<span class="nc" id="L78">		height = newHeight;</span>
+<span class="nc" id="L79">		hairColor = newHairColor;</span>
+<span class="nc" id="L80">		eyeColor = newEyeColor;</span>
+<span class="nc" id="L81">		email = newEmail;</span>
+<span class="nc" id="L82">		validate();</span>
+<span class="nc" id="L83">	}</span>
+
+	/**
+	 * Create Person
+	 * 
+	 * @param accountHolder
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(&quot;resource&quot;)
+<span class="nc" id="L92">	public Person(String accountHolder) throws Exception {</span>
+<span class="nc" id="L93">		Scanner scan = null;</span>
+		try {
+<span class="nc" id="L95">			scan = new Scanner(accountHolder).useDelimiter(DELIM);</span>
+<span class="nc" id="L96">			name = scan.next();</span>
+<span class="nc" id="L97">			gender = scan.next().charAt(0);</span>
+<span class="nc" id="L98">			age = scan.nextInt();</span>
+<span class="nc" id="L99">			height = scan.nextFloat();</span>
+<span class="nc" id="L100">			weight = scan.nextFloat();</span>
+<span class="nc" id="L101">			hairColor = scan.next();</span>
+<span class="nc" id="L102">			eyeColor = scan.next();</span>
+<span class="nc" id="L103">			email = scan.next();</span>
+<span class="nc" id="L104">		} finally {</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">			if (scan != null) {</span>
+<span class="nc" id="L106">				scan.close();</span>
+			}
+		}
+<span class="nc" id="L109">		validate();</span>
+<span class="nc" id="L110">	}</span>
+
+	// For every private attribute we should have public get and set
+	// methods that allow us to read the attribute and write to it.
+
+	/**
+	 * Get Name
+	 * 
+	 * @return
+	 */
+	public String getName() {
+<span class="nc" id="L121">		return name;</span>
+	}
+
+	/**
+	 * Set Name
+	 * 
+	 * @param newName
+	 */
+	public void setName(String newName) {
+<span class="nc" id="L130">		name = newName;</span>
+<span class="nc" id="L131">	}</span>
+
+	// getter and setter for the gender attribute
+	/**
+	 * Get Gender
+	 * 
+	 * @return
+	 */
+	public char getGender() {
+<span class="nc" id="L140">		return gender;</span>
+	}
+
+	/**
+	 * Set Gender
+	 * 
+	 * @param newGender
+	 * @throws Exception 
+	 */
+	public void setGender(char newGender) throws Exception {
+<span class="nc bnc" id="L150" title="All 2 branches missed.">		if (validateGender(newGender)) {</span>
+<span class="nc" id="L151">			this.gender = newGender;</span>
+		}
+<span class="nc" id="L153">	}</span>
+
+	/**
+	 * Get Age
+	 * 
+	 * @return
+	 */
+	public int getAge() {
+<span class="nc" id="L161">		return age;</span>
+	}
+
+	/**
+	 * Set Age
+	 * 
+	 * @param newAge
+	 */
+	public void setAge(int newAge) {
+		// Set the internal value of age to the value requested by the user
+		// but also prevent the user from setting an invalid age
+
+		// For example all negative age values are invalid
+		// So set the age only if its bigger than 0.
+<span class="nc bnc" id="L175" title="All 2 branches missed.">		if (newAge &gt;= 0)</span>
+<span class="nc" id="L176">			age = newAge;</span>
+
+<span class="nc" id="L178">	}</span>
+
+	/**
+	 * Get Height
+	 * @return
+	 */
+	public float getHeight() {
+<span class="nc" id="L185">		return height;</span>
+	}
+
+	/**
+	 * Set Height
+	 * @param height
+	 */
+	public void setHeight(float height) {
+		// If we name our parameter with the same name
+		// as the attribute, we should use the this keyword
+		// so that Java knows which one we are talking about.
+		// this.height means the height attribute internal to the class.
+
+<span class="nc" id="L198">		this.height = height;</span>
+<span class="nc" id="L199">	}</span>
+
+	// getter and setter for the weight attribute
+	public float getWeight() {
+<span class="nc" id="L203">		return weight;</span>
+	}
+
+	public void setWeight(float newWeight) {
+<span class="nc" id="L207">		weight = newWeight;</span>
+<span class="nc" id="L208">	}</span>
+
+	// getter and setter for the name hair color attribute
+	public String getHairColor() {
+<span class="nc" id="L212">		return hairColor;</span>
+	}
+
+	public void setHairColor(String newHairColor) {
+<span class="nc bnc" id="L216" title="All 4 branches missed.">		if (newHairColor.equalsIgnoreCase(&quot;black&quot;) || newHairColor.equalsIgnoreCase(&quot;brown&quot;)</span>
+<span class="nc bnc" id="L217" title="All 4 branches missed.">				|| newHairColor.equalsIgnoreCase(&quot;blond&quot;) || newHairColor.equalsIgnoreCase(&quot;white&quot;))</span>
+<span class="nc" id="L218">			hairColor = newHairColor;</span>
+<span class="nc" id="L219">	}</span>
+
+	// getter and setter for the eye color attribute
+	public String getEyeColor() {
+<span class="nc" id="L223">		return eyeColor;</span>
+	}
+
+	public void setEyeColor(String newEyeColor) {
+<span class="nc" id="L227">		eyeColor = newEyeColor;</span>
+<span class="nc" id="L228">	}</span>
+
+	// All the other class behaviors/methods
+
+	// This method stores all current class information in a string
+	// and returns it.
+	public String toString() {
+		// Store all attribute values in string personInfo
+<span class="nc" id="L236">		String personInfo = getName() + DELIM + getGender() + DELIM + getAge() + DELIM + getHeight() + DELIM</span>
+<span class="nc" id="L237">				+ getWeight() + DELIM + getHairColor() + DELIM + getEyeColor() + DELIM + getEmail();</span>
+<span class="nc" id="L238">		return personInfo;</span>
+	}
+
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+<span class="nc" id="L245">		return email;</span>
+	}
+
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+<span class="nc" id="L252">		this.email = email;</span>
+<span class="nc" id="L253">	}</span>
+	
+	private void validate() throws Exception {
+<span class="nc" id="L256">		validateGender(gender);</span>
+<span class="nc" id="L257">		return;</span>
+	}
+	
+	/**
+	 * validate the gender
+	 * @param value
+	 * @return
+	 * @throws Exception
+	 */
+	private boolean validateGender(char value) throws Exception {
+<span class="nc bnc" id="L267" title="All 8 branches missed.">		if ((value == 'M' || (value == 'F')|| (value == 'm') || (value == 'f' )))</span>
+<span class="nc" id="L268">			return true;</span>
+		else
+<span class="nc" id="L270">			throw new Exception(&quot;Invalid gender: &quot; + gender);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

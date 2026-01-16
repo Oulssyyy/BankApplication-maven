@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BankAccount.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Bank Application</a> &gt; <a href="index.source.html" class="el_package">bankAccountApp</a> &gt; <span class="el_source">BankAccount.java</span></div><h1>BankAccount.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package bankAccountApp;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Scanner;
+
+/**
+ *
+ * @author jay
+ */
+public class BankAccount {
+
+	private Person accountHolder;
+<span class="pc" id="L19">	private double balance = 0;</span>
+	private String dateCreated;
+<span class="pc" id="L21">	private double withdrawLimit = 0;</span>
+	private boolean success;
+<span class="pc" id="L23">	private double initMoneyAmount = 0;</span>
+<span class="pc" id="L24">	private int accountNumber = 0;</span>
+<span class="pc" id="L25">	private double amountWithdrawn = 0;</span>
+
+<span class="fc" id="L27">	public BankAccount() {</span>
+		// Person Person = new Person();
+<span class="fc" id="L29">		initMoneyAmount = 0;</span>
+<span class="fc" id="L30">		this.withdrawLimit = 0;</span>
+<span class="fc" id="L31">		this.balance = 0;</span>
+<span class="fc" id="L32">		this.dateCreated = &quot;&quot;;</span>
+<span class="fc" id="L33">		this.accountHolder = null;</span>
+<span class="fc" id="L34">		this.accountNumber = 0;</span>
+<span class="fc" id="L35">	}</span>
+
+	/**
+	 * @return the accountHolder
+	 */
+<span class="fc" id="L40">	public BankAccount(double newInitMoneyAmount, double newWithdrawlimit, String newDateCreated, Person initHolder) {</span>
+
+<span class="fc" id="L42">		initMoneyAmount = newInitMoneyAmount;</span>
+<span class="fc" id="L43">		balance = newInitMoneyAmount;</span>
+<span class="fc" id="L44">		withdrawLimit = newWithdrawlimit;</span>
+<span class="fc" id="L45">		dateCreated = newDateCreated;</span>
+<span class="fc" id="L46">		accountNumber = 0;</span>
+<span class="fc" id="L47">		accountHolder = initHolder;</span>
+<span class="fc" id="L48">	}</span>
+
+<span class="nc" id="L50">	public BankAccount(int accountNumber, double balance, double withdrawLimit, String dateCreated,</span>
+			String accountHolder) throws Exception {
+<span class="nc" id="L52">		Person Person = new Person(accountHolder);</span>
+<span class="nc" id="L53">		initMoneyAmount = 0;</span>
+<span class="nc" id="L54">		this.withdrawLimit = withdrawLimit;</span>
+<span class="nc" id="L55">		this.balance = balance;</span>
+<span class="nc" id="L56">		this.dateCreated = dateCreated;</span>
+<span class="nc" id="L57">		this.accountHolder = Person;</span>
+<span class="nc" id="L58">		this.accountNumber = accountNumber;</span>
+<span class="nc" id="L59">	}</span>
+
+	public Person getAccountHolder() {
+		// accountHolder = acc.getAccountHolder(acc);
+
+<span class="nc" id="L64">		return accountHolder;</span>
+	}
+
+	/**
+	 * @param accountHolder the accountHolder to set
+	 */
+	public void setAccountHolder(Person accountHolder) {
+
+<span class="nc bnc" id="L72" title="All 2 branches missed.">		if (accountHolder != null) {</span>
+<span class="nc" id="L73">			this.accountHolder = accountHolder;</span>
+		}
+		// accountHolder = Person.getName() ;
+<span class="nc" id="L76">	}</span>
+
+	/**
+	 * @return the balance
+	 */
+	public double getBalance() {
+<span class="fc" id="L82">		return balance;</span>
+	}
+
+	/**
+	 * @param balance the balance to set
+	 */
+	private void setBalance(double balance) {
+
+<span class="nc" id="L90">		this.balance = balance;</span>
+<span class="nc" id="L91">	}</span>
+
+	/**
+	 * @return the dateCreated
+	 */
+	public String getDateCreated() {
+<span class="nc" id="L97">		return dateCreated;</span>
+	}
+
+	/**
+	 * @param dateCreated the dateCreated to set
+	 */
+	private void setDateCreated(String dateCreated) {
+<span class="nc" id="L104">		this.dateCreated = dateCreated;</span>
+<span class="nc" id="L105">	}</span>
+
+	/**
+	 * @return the withdrawLimit
+	 */
+	public double getWithdrawLimit() {
+<span class="nc" id="L111">		return withdrawLimit;</span>
+	}
+
+	/**
+	 * @param withdrawLimit the withdrawLimit to set
+	 */
+	public void setWithdrawLimit(double withdrawLimit) {
+<span class="nc" id="L118">		this.withdrawLimit = withdrawLimit;</span>
+<span class="nc" id="L119">	}</span>
+
+	public double getAmountWithdrawn() {
+<span class="fc" id="L122">		return amountWithdrawn;</span>
+	}
+	
+	public void depositMoney(double depositAmount) {
+<span class="fc bfc" id="L126" title="All 2 branches covered.">		if (depositAmount &gt;= 0) {</span>
+<span class="fc" id="L127">			balance = balance + depositAmount;</span>
+		}
+<span class="fc" id="L129">	}</span>
+
+	public boolean withdrawMoney(double withdrawAmount) {
+<span class="fc bfc" id="L132" title="All 2 branches covered.">		if (isWithdrawalValid(withdrawAmount)) {</span>
+<span class="fc" id="L133">			balance = balance - withdrawAmount;</span>
+<span class="fc" id="L134">			success = true;</span>
+<span class="fc" id="L135">			amountWithdrawn += withdrawAmount;</span>
+<span class="fc" id="L136">		} else {</span>
+<span class="fc" id="L137">			success = false;</span>
+		}
+<span class="fc" id="L139">		return success;</span>
+	}
+
+	private boolean isWithdrawalValid(double withdrawAmount) {
+<span class="fc bfc" id="L143" title="All 4 branches covered.">		return withdrawAmount &gt;= 0 </span>
+<span class="fc bfc" id="L144" title="All 2 branches covered.">			&amp;&amp; balance &gt;= withdrawAmount </span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">			&amp;&amp; withdrawAmount &lt; withdrawLimit</span>
+<span class="fc" id="L146">			&amp;&amp; withdrawAmount + amountWithdrawn &lt;= withdrawLimit;</span>
+	}
+
+	public void setAccountNumber(int accNumber) {
+<span class="fc" id="L150">		accountNumber = accNumber;</span>
+
+<span class="fc" id="L152">	}</span>
+
+	public int getAccountNumber() {
+
+<span class="fc" id="L156">		return accountNumber;</span>
+	}
+
+	public double getInitMoneyAmount() {
+<span class="nc" id="L160">		return initMoneyAmount;</span>
+	}
+
+	public int loadFromText(String text) {
+<span class="nc" id="L164">		int accountsLoaded = 0;</span>
+<span class="nc" id="L165">		Bank accManager = new Bank();</span>
+<span class="nc" id="L166">		try (FileInputStream fis = new FileInputStream(text);</span>
+<span class="nc" id="L167">			 Scanner fileScanner = new Scanner(fis)) {</span>
+<span class="nc bnc" id="L168" title="All 2 branches missed.">			while (fileScanner.hasNextLine()) {</span>
+<span class="nc" id="L169">				BankAccount tmpAccount = new BankAccount();</span>
+<span class="nc" id="L170">				tmpAccount.setAccountNumber(fileScanner.nextInt());</span>
+<span class="nc" id="L171">				tmpAccount.setBalance(fileScanner.nextDouble());</span>
+<span class="nc" id="L172">				tmpAccount.setWithdrawLimit(fileScanner.nextDouble());</span>
+<span class="nc" id="L173">				tmpAccount.setDateCreated(fileScanner.next());</span>
+<span class="nc" id="L174">				String newName = fileScanner.next();</span>
+<span class="nc" id="L175">				char gender = fileScanner.next().charAt(0);</span>
+<span class="nc" id="L176">				int newAge = fileScanner.nextInt();</span>
+<span class="nc" id="L177">				float newWeight = fileScanner.nextFloat();</span>
+<span class="nc" id="L178">				float newHeight = fileScanner.nextFloat();</span>
+<span class="nc" id="L179">				String newHairColor = fileScanner.next();</span>
+<span class="nc" id="L180">				String newEyeColor = fileScanner.next();</span>
+<span class="nc" id="L181">				String newEmail = fileScanner.next();</span>
+<span class="nc" id="L182">				String accountHolder1 = newName + Person.DELIM + gender + Person.DELIM + newAge + Person.DELIM</span>
+<span class="nc" id="L183">						+ newHeight + Person.DELIM + newWeight + Person.DELIM + newHairColor + Person.DELIM</span>
+<span class="nc" id="L184">						+ newEyeColor + Person.DELIM + newEmail;</span>
+<span class="nc" id="L185">				Person accountHolderManager = new Person(accountHolder1);</span>
+<span class="nc" id="L186">				tmpAccount.setAccountHolder(accountHolderManager);</span>
+<span class="nc" id="L187">				accountsLoaded = accManager.addAccount(tmpAccount, 1);</span>
+			}
+
+<span class="nc" id="L190">		} catch (Exception e) {</span>
+<span class="nc" id="L191">			System.out.println(&quot;Error reading file&quot;);</span>
+		}
+<span class="nc" id="L193">		return accountsLoaded;</span>
+	}
+
+	public String toString() {
+
+<span class="nc" id="L198">		String bankInfo = &quot;Your Account number is &quot; + accountNumber + &quot; &quot; + &quot;Your Balance is: &quot; + balance + &quot; &quot;</span>
+<span class="nc" id="L199">				+ &quot;Date account created is: &quot; + dateCreated + &quot; &quot; + &quot;Withdraw limit is: &quot; + withdrawLimit + &quot; &quot;</span>
+<span class="nc" id="L200">				+ &quot;Your account holder info is: &quot; + accountHolder;</span>
+
+<span class="nc" id="L202">		return bankInfo;</span>
+	}
+
+	public String convertToText(BankAccount tmp) {
+
+<span class="nc" id="L207">		String AccountsInfo =  tmp.getAccountNumber() + Person.DELIM + tmp.getBalance() + Person.DELIM</span>
+<span class="nc" id="L208">				+ tmp.getWithdrawLimit() + Person.DELIM + tmp.getDateCreated() + Person.DELIM + tmp.getAccountHolder();</span>
+		// allAccountInfo += AccountsInfo;
+
+<span class="nc" id="L211">		return AccountsInfo;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

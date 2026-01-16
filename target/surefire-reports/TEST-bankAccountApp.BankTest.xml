@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="bankAccountApp.BankAccountTest" time="0.134" tests="11" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="bankAccountApp.BankTest" time="0.004" tests="18" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -56,15 +56,22 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testWithdrawMoney_JustBelowLimit" classname="bankAccountApp.BankAccountTest" time="0.004"/>
-  <testcase name="testWithdrawMoney_AtExactLimit" classname="bankAccountApp.BankAccountTest" time="0.0"/>
-  <testcase name="testWithdrawMoney_ExceedsWithdrawLimit" classname="bankAccountApp.BankAccountTest" time="0.0"/>
-  <testcase name="testDepositMoney_NegativeAmount" classname="bankAccountApp.BankAccountTest" time="0.0"/>
-  <testcase name="testWithdrawMoney_ExceedsBalance" classname="bankAccountApp.BankAccountTest" time="0.0"/>
-  <testcase name="testWithdrawMoney_ExceedsDailyLimit" classname="bankAccountApp.BankAccountTest" time="0.0"/>
-  <testcase name="testDepositMoney_Zero" classname="bankAccountApp.BankAccountTest" time="0.0"/>
-  <testcase name="testDepositMoney_HappyPath" classname="bankAccountApp.BankAccountTest" time="0.0"/>
-  <testcase name="testWithdrawMoney_HappyPath" classname="bankAccountApp.BankAccountTest" time="0.0"/>
-  <testcase name="testWithdrawMoney_NegativeAmount" classname="bankAccountApp.BankAccountTest" time="0.0"/>
-  <testcase name="testDepositMoney_MultipleDeposits" classname="bankAccountApp.BankAccountTest" time="0.0"/>
+  <testcase name="testGetAverageBalance_MultipleAccounts" classname="bankAccountApp.BankTest" time="0.0"/>
+  <testcase name="testFindAccount_ExistingAccount" classname="bankAccountApp.BankTest" time="0.0"/>
+  <testcase name="testRegisterAccount" classname="bankAccountApp.BankTest" time="0.0"/>
+  <testcase name="testAddAccount_NewAccount" classname="bankAccountApp.BankTest" time="0.0"/>
+  <testcase name="testFindAccount_NonExistingAccount" classname="bankAccountApp.BankTest" time="0.0"/>
+  <testcase name="testGetAccounts" classname="bankAccountApp.BankTest" time="0.0"/>
+  <testcase name="testGetAccounts_EmptyBank" classname="bankAccountApp.BankTest" time="0.0"/>
+  <testcase name="testGetMaximumBalance" classname="bankAccountApp.BankTest" time="0.0"/>
+  <testcase name="testTransferAmount" classname="bankAccountApp.BankTest" time="0.0"/>
+  <testcase name="testSetAndGetAccountsLoaded" classname="bankAccountApp.BankTest" time="0.0"/>
+  <testcase name="testGetMinimumBalance_SingleAccount" classname="bankAccountApp.BankTest" time="0.001"/>
+  <testcase name="testGetMinimumBalance" classname="bankAccountApp.BankTest" time="0.0"/>
+  <testcase name="testDeleteAccount" classname="bankAccountApp.BankTest" time="0.0"/>
+  <testcase name="testDeleteAccount_NonExisting" classname="bankAccountApp.BankTest" time="0.0"/>
+  <testcase name="testGetAverageBalance_SingleAccount" classname="bankAccountApp.BankTest" time="0.0"/>
+  <testcase name="testGetMaximumBalance_SingleAccount" classname="bankAccountApp.BankTest" time="0.0"/>
+  <testcase name="testAddAccount_LoadExisting" classname="bankAccountApp.BankTest" time="0.0"/>
+  <testcase name="testAddAccount_MultipleAccounts" classname="bankAccountApp.BankTest" time="0.0"/>
 </testsuite>
